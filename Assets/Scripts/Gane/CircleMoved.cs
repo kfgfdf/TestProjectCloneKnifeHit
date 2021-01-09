@@ -6,7 +6,7 @@ public class CircleMoved : MonoBehaviour
 {
     public GameObject cirl;
     public Rigidbody2D cirlRB;
-    public float Speed = 70.0f;
+    public float Speed = 120.0f;
 
     private int rndMoving;
 
@@ -48,7 +48,7 @@ public class CircleMoved : MonoBehaviour
 
     void SlowedRotation()
     {
-        Speed = Speed - 40;
+        Speed = Speed - 100;
         Invoke("DeffoltRotation", 0.5f);
     }
 
@@ -60,7 +60,7 @@ public class CircleMoved : MonoBehaviour
 
     void DeffoltRotation()
     {
-        Speed = 70; //DEFOLTSPEED
+        Speed = 120; //DEFOLTSPEED
         Invoke("ChangeRotation", 1);
     }
 }

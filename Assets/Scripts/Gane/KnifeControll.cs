@@ -30,7 +30,7 @@ public class KnifeControll : MonoBehaviour
             | RigidbodyConstraints2D.FreezeRotation;
             
         }
-        if(other.gameObject.tag == "Knife")
+        if(other.gameObject.tag == "Knife" || other.gameObject.tag == "KnifeStatic")
         {
             hitsScript._isDead = true;
             MCanvas.SetActive(false);
