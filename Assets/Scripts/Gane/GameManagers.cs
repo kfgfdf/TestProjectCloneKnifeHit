@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManagers : MonoBehaviour
 {
     public Text Apples, StageNumber, Score;
-    public int rndApple, rndPosApple, rndHits, rndStaticKnife;
+    private int rndApple, rndPosApple, rndHits, rndStaticKnife;
     private GameObject newApple, newStaticKnife, newStaticKnife2, newStaticKnife3;
     public GameObject prefApple, circle, prefStaticKnife;
     public int countHits;
@@ -29,7 +29,16 @@ public class GameManagers : MonoBehaviour
                 PlayerPrefs.SetInt("Stage", 1);
             }
 
+        if(PlayerPrefs.GetInt("Stage") <= 5)
         rndHits = Random.Range(3, 7);
+        else if(PlayerPrefs.GetInt("Stage") <= 10)
+        rndHits = Random.Range(4, 8);
+        else if(PlayerPrefs.GetInt("Stage") <= 15)
+        rndHits = Random.Range(5, 9);
+        else if(PlayerPrefs.GetInt("Stage") >= 15)
+        rndHits = Random.Range(6, 10);
+
+       
             for(int i = 0; i < rndHits; i++)
             {
                 kStage[i].SetActive(true);

@@ -10,13 +10,34 @@ public class KnifeHit : MonoBehaviour
     public KnifeControll trigScript;
 
     private GameObject newKnifeGO;
-    public GameObject prefKnife;
+    public GameObject prefKnifeDeffolt;
     private int numberKnife;
 
     public GameManagers GMS;
 
+    private bool _ButtonDown, _isAttack;
+
+    public float AttackSpeed = 0.2f; // ! < 0.2f
+
+    public GameObject[] AllSkinsKnife;
+    private GameObject CurrentSkinKnife;
+    private int numberSkinKnife;
+
     void Start()
     {
+        PlayerPrefs.SetInt("KnifeSkin", 2);
+
+        numberSkinKnife = PlayerPrefs.GetInt("KnifeSkin");
+
+        if (!PlayerPrefs.HasKey("KnifeSkin")) 
+            CurrentSkinKnife = prefKnifeDeffolt;
+        else if(PlayerPrefs.GetInt("KnifeSkin") == 1)
+            CurrentSkinKnife = prefKnifeDeffolt;
+        else
+            CurrentSkinKnife = AllSkinsKnife[numberSkinKnife - 2];
+
+        newKnifeGO = Instantiate(CurrentSkinKnife, new Vector3(0, -4.2f, 0), Quaternion.identity)as GameObject;
+
         knife = GameObject.FindWithTag("Knife");
         knifeRB = knife.GetComponent<Rigidbody2D>();
         trigScript = knife.GetComponent<KnifeControll>();
@@ -24,16 +45,15 @@ public class KnifeHit : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0) && !GMS._isWin)
-        {
-            knifeRB.AddForce(transform.up * Speed);
-        }
+        if(Input.GetMouseButtonDown(0) && !GMS._isWin && !_isAttack)
+            _ButtonDown = true;
+        
         if(trigScript.newKnife)
         {
             
 
             numberKnife++;
-            newKnifeGO = Instantiate(prefKnife, new Vector3(0, -4f, 0), Quaternion.identity)as GameObject;
+            newKnifeGO = Instantiate(CurrentSkinKnife, new Vector3(0, -4.2f, 0), Quaternion.identity)as GameObject;
             newKnifeGO.name = "Knife" + numberKnife;
             trigScript.newKnife = false;
 
@@ -41,6 +61,22 @@ public class KnifeHit : MonoBehaviour
             knifeRB = knife.GetComponent<Rigidbody2D>();
             trigScript = knife.GetComponent<KnifeControll>();
         }
+    }
+
+    void FixedUpdate()
+    {
+        if(_ButtonDown)
+        {
+            _ButtonDown = false;
+            _isAttack = true;
+            knifeRB.AddForce(transform.up * Speed);
+            Invoke("AttackFalse", AttackSpeed); // ! < 0.2f
+        }
+    }
+
+    void AttackFalse()
+    {
+        _isAttack = false;
     }
 
 }

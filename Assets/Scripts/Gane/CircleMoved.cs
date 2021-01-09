@@ -21,6 +21,8 @@ public class CircleMoved : MonoBehaviour
         Invoke("ChangeRotation", 0.15f);
         else if(PlayerPrefs.GetInt("Stage") <= 15)
         Invoke("ChangeRotation", 0.05f);
+        else if(PlayerPrefs.GetInt("Stage") >= 15)
+        Invoke("ChangeRotation", 0.02f);
     }
 
     void Update()
