@@ -76,7 +76,7 @@ public class GameManagers : MonoBehaviour
                 //Destroy(circle);
                 PlayerPrefs.SetInt("Stage", PlayerPrefs.GetInt("Stage") + 1);
 
-                CircleDestroy.Play("WoodCircle1Brocken");
+                CircleDestroy.Play("CircleDestroy1");
                 
             }
         if(curHits < countHits)
