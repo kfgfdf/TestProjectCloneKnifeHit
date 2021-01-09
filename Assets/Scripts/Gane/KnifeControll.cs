@@ -35,9 +35,14 @@ public class KnifeControll : MonoBehaviour
             hitsScript._isDead = true;
             MCanvas.SetActive(false);
             Time.timeScale = 0;
+
+            if(PlayerPrefs.GetInt("RecordStage") < PlayerPrefs.GetInt("Stage"))
+                PlayerPrefs.SetInt("RecordStage", PlayerPrefs.GetInt("Stage"));
+
             PlayerPrefs.SetInt("Stage", 1);
+
             if(PlayerPrefs.GetInt("TemporaryScore") > PlayerPrefs.GetInt("RecordScore"))
-            PlayerPrefs.SetInt("RecordScore", PlayerPrefs.GetInt("TemporaryScore"));
+                PlayerPrefs.SetInt("RecordScore", PlayerPrefs.GetInt("TemporaryScore"));
 
             PlayerPrefs.SetInt("TemporaryScore", 0);
         }
