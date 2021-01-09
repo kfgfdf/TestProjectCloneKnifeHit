@@ -16,7 +16,7 @@ public class GameManagers : MonoBehaviour
     private bool Stoped;
     public GameObject[] kStage;
 
-    public bool _isDead;
+    public bool _isDead, _isWin;
     public GameObject DeadCanvas;
 
     public Animator CircleDestroy;
@@ -91,7 +91,7 @@ public class GameManagers : MonoBehaviour
                 }
 
                 
-                //Destroy(circle);
+                _isWin = true;
                 PlayerPrefs.SetInt("Stage", PlayerPrefs.GetInt("Stage") + 1);
 
                 CircleDestroy.Play("CircleDestroy1");

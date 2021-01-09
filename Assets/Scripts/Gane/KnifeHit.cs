@@ -6,12 +6,14 @@ public class KnifeHit : MonoBehaviour
 {
     public GameObject knife;
     public Rigidbody2D knifeRB;
-    public float Speed = 10f;
+    public float Speed = 100f;
     public KnifeControll trigScript;
 
     private GameObject newKnifeGO;
     public GameObject prefKnife;
     private int numberKnife;
+
+    public GameManagers GMS;
 
     void Start()
     {
@@ -22,7 +24,7 @@ public class KnifeHit : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && !GMS._isWin)
         {
             knifeRB.AddForce(transform.up * Speed);
         }

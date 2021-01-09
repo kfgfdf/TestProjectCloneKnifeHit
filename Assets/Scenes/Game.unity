@@ -991,6 +991,7 @@ MonoBehaviour:
   - {fileID: 103736555}
   - {fileID: 637304531}
   _isDead: 0
+  _isWin: 0
   DeadCanvas: {fileID: 1450902873}
   CircleDestroy: {fileID: 303417696}
 --- !u!4 &488305563
@@ -1125,6 +1126,7 @@ MonoBehaviour:
   trigScript: {fileID: 0}
   prefKnife: {fileID: 248552418121593142, guid: 58727d6237b24d04eb00b8a624655ec6,
     type: 3}
+  GMS: {fileID: 488305562}
 --- !u!1 &534647716
 GameObject:
   m_ObjectHideFlags: 0
