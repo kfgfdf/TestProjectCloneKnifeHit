@@ -17,7 +17,7 @@ public class GameManagers : MonoBehaviour
     public GameObject[] kStage;
 
     public bool _isDead, _isWin;
-    public GameObject DeadCanvas;
+    public GameObject DeadCanvas, MainCanvass, PauseCanvas;
 
     public Animator CircleDestroy;
     private GameObject[] AllKnifes, AllStaticKnifes;
@@ -129,5 +129,17 @@ public class GameManagers : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+    public void ButPause()
+    {
+        Time.timeScale = 0;
+        PauseCanvas.SetActive(true);
+        MainCanvass.SetActive(false);
+    }
+    public void ButContinue()
+    {
+        Time.timeScale = 1;
+        PauseCanvas.SetActive(false);
+        MainCanvass.SetActive(true);
     }
 }
