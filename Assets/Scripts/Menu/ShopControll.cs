@@ -40,8 +40,10 @@ public class ShopControll : MonoBehaviour
                 _isChangedSkin = true;
                 StatusBuying.text = "Buying and Changed!";
                 Invoke("StatusBuyingIsNull", 2f);
+                Price.text = "Selected";
+                AppleInPrice.SetActive(false);
             }
-          else
+          if(PlayerPrefs.GetInt("BuyingKnifeSkin" + currentNumberButton + 1) == 1)
             {
                 PlayerPrefs.SetInt("KnifeSkin", currentNumberButton + 1);
                 _isChangedSkin = true;
