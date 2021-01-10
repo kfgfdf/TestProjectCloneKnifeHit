@@ -25,7 +25,6 @@ public class KnifeHit : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("KnifeSkin", 2);
 
         numberSkinKnife = PlayerPrefs.GetInt("KnifeSkin");
 

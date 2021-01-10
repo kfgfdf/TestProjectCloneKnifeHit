@@ -48,15 +48,15 @@ public class GameManagers : MonoBehaviour
 
         rndApple = Random.Range(1, 5);
         rndPosApple = Random.Range(1, 3);
-        //if(rndApple == 1)
-        //{
+        if(rndApple == 1)
+        {
         if(rndPosApple == 1){
         newApple = Instantiate(prefApple, new Vector3(circle.transform.localPosition.x + 1.65f, circle.transform.localPosition.y + 0.75f, 0), transform.rotation, circle.transform)as GameObject;
         newApple.transform.Rotate (0,0, -70f);}
         else if(rndPosApple == 2){
         newApple = Instantiate(prefApple, new Vector3(circle.transform.localPosition.x - 1.8f, circle.transform.localPosition.y, 0), transform.rotation, circle.transform)as GameObject;
         newApple.transform.Rotate (0,0, 100f);}
-        //}
+        }
         
         rndStaticKnife = Random.Range(1, 4);
         if(rndStaticKnife == 1){
