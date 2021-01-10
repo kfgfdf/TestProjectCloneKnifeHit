@@ -9,10 +9,13 @@ public class MenuContoll : MonoBehaviour
     public Sprite[] allSkinsKnife;
     private int CurrentSkin;
 
+    public ShopControll ShopScript;
+
     void Start()
     {
         ///////
-       ///// PlayerPrefs.SetInt("Apples", 500);
+        PlayerPrefs.SetInt("Apples", 1000);
+        ///////////////////////////
        
         if(!PlayerPrefs.HasKey("BuyingKnifeSkin1"))
             PlayerPrefs.SetInt("BuyingKnifeSkin1", 1);
@@ -28,6 +31,21 @@ public class MenuContoll : MonoBehaviour
             KnifeSkinsGO.GetComponent<SpriteRenderer>().sprite = allSkinsKnife[CurrentSkin - 1];
             KnifeSkinsGOshop.GetComponent<SpriteRenderer>().sprite = allSkinsKnife[CurrentSkin - 1];
         }
+    }
+
+    void Update()
+    {
+        if(ShopScript._isChangedSkin)
+         {
+             Refreshing();
+             ShopScript._isChangedSkin = false;
+         }
+    }
+
+    void Refreshing()
+    {
+        CurrentSkin = PlayerPrefs.GetInt("KnifeSkin");
+        KnifeSkinsGO.GetComponent<SpriteRenderer>().sprite = allSkinsKnife[CurrentSkin - 1];
     }
 
 

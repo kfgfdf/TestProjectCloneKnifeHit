@@ -1599,6 +1599,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b1cb6976e1edbc342a16f52f1289015d, type: 3}
   - {fileID: 21300000, guid: ffa0a496d7fcab844b805bf08effa255, type: 3}
   - {fileID: 21300000, guid: 6309f1925c13d9943ac21f5f2ef85c96, type: 3}
+  ShopScript: {fileID: 892550280}
 --- !u!95 &892550279
 Animator:
   serializedVersion: 3
@@ -1635,6 +1636,7 @@ MonoBehaviour:
   Price: {fileID: 2113152000}
   StatusBuying: {fileID: 1350081959}
   _isChangeApples: 0
+  _isChangedSkin: 0
   allSkinsKnifeShop:
   - {fileID: 21300000, guid: b1cb6976e1edbc342a16f52f1289015d, type: 3}
   - {fileID: 21300000, guid: ffa0a496d7fcab844b805bf08effa255, type: 3}

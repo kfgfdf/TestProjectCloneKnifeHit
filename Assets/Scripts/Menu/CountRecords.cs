@@ -17,7 +17,10 @@ public class CountRecords : MonoBehaviour
     void Update()
     {
         if(ShopScript._isChangeApples)
+        {
             ChangeApples();
+            ShopScript._isChangeApples = false;
+        }
     }
 
     void ChangeApples()
