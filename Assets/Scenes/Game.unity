@@ -1569,6 +1569,10 @@ MonoBehaviour:
   Apples: {fileID: 251811386}
   StageNumber: {fileID: 1752109019}
   Score: {fileID: 161348540}
+  rndApple: 0
+  rndPosApple: 0
+  rndHits: 0
+  rndStaticKnife: 0
   prefApple: {fileID: 7941326211942745832, guid: 5c2d449b1d86e2a47b2e5add982bca71,
     type: 3}
   circle: {fileID: 303417691}
@@ -1726,9 +1730,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c14e4078d2c32429928a087251f4df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cirl: {fileID: 0}
-  cirlRB: {fileID: 0}
   Speed: 120
+  DefSpeed: 120
+  SlowedSpeed: 40
+  FastSpeed: 150
+  timing1Phase: 4
+  timing2Phase: 3
+  timing3Phase: 2
+  timing4Phase: 1.5
+  rndMoving: 0
+  timing: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1809,6 +1820,7 @@ MonoBehaviour:
   AllSkinsKnife:
   - {fileID: 8139306877194518246, guid: c9e20f5d14d7aeb44887137053840f73, type: 3}
   - {fileID: 195016057149738659, guid: bb1c5c4d369a20d4c8817443ad8893ec, type: 3}
+  - {fileID: 3769892677654904606, guid: f908b41b74fadd74e8cf823c925ec62c, type: 3}
 --- !u!1 &534647716
 GameObject:
   m_ObjectHideFlags: 0

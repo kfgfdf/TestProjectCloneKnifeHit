@@ -6,11 +6,12 @@ public class CircleMoved : MonoBehaviour
 {
     private GameObject cirl;
     private Rigidbody2D cirlRB;
-    public float Speed = 120.0f, DefSpeed = 120.0f, SlowedSpeed = 40.0f, FastSpeed = 150.0f, 
+    private float Speed = 120.0f;
+    public float DefSpeed = 120.0f, SlowedSpeed = 40.0f, FastSpeed = 150.0f, 
     timing1Phase = 4f, timing2Phase = 3f, timing3Phase = 2f, timing4Phase = 1.5f;
 
-    [SerializeField] private int rndMoving;
-    [SerializeField] private float timing;
+    private int rndMoving;
+    private float timing;
 
     void Start()
     {
