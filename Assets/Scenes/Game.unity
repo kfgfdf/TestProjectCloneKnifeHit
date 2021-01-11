@@ -1583,8 +1583,8 @@ MonoBehaviour:
   - {fileID: 2146582359}
   - {fileID: 103736555}
   - {fileID: 637304531}
-  - {fileID: 637304531}
-  - {fileID: 637304531}
+  - {fileID: 1438995809}
+  - {fileID: 1714917240}
   _isDead: 0
   _isWin: 0
   DeadCanvas: {fileID: 1450902873}

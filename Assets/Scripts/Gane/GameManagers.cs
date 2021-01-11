@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManagers : MonoBehaviour
 {
     public Text Apples, StageNumber, Score;
-    private int rndApple, rndPosApple, rndHits, rndStaticKnife;
+    [SerializeField] private int rndApple, rndPosApple, rndHits, rndStaticKnife;
     private GameObject newApple, newStaticKnife, newStaticKnife2, newStaticKnife3;
     public GameObject prefApple, circle, prefStaticKnife;
     public int countHits;

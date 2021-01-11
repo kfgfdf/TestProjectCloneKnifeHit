@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CircleMoved : MonoBehaviour
 {
-    public GameObject cirl;
-    public Rigidbody2D cirlRB;
-    public float Speed = 120.0f;
+    private GameObject cirl;
+    private Rigidbody2D cirlRB;
+    public float Speed = 120.0f, DefSpeed = 120.0f, SlowedSpeed = 20.0f, FastSpeed = 150.0f;
 
     private int rndMoving;
 
@@ -25,7 +25,7 @@ public class CircleMoved : MonoBehaviour
         Invoke("ChangeRotation", 0.02f);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         cirlRB.transform.Rotate (0,0, Speed * Time.deltaTime);
     }
@@ -50,19 +50,19 @@ public class CircleMoved : MonoBehaviour
 
     void SlowedRotation()
     {
-        Speed = Speed - 100;
+        Speed = SlowedSpeed;
         Invoke("DeffoltRotation", 0.5f);
     }
 
     void BoostRotation()
     {
-        Speed = Speed + 30;
+        Speed = FastSpeed;
         Invoke("DeffoltRotation", 0.5f);
     }
 
     void DeffoltRotation()
     {
-        Speed = 120; //DEFOLTSPEED
-        Invoke("ChangeRotation", 1);
+        Speed = DefSpeed; //DEFOLTSPEED
+        Invoke("ChangeRotation", 0.4f);
     }
 }

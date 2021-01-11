@@ -55,6 +55,7 @@ public class ShopControll : MonoBehaviour
 
     public void ButtonClick (int numberSkin)
     {
+
         PresentKnifeSkin.GetComponent<SpriteRenderer>().sprite = allSkinsKnifeShop[numberSkin];
         currentNumberButton = numberSkin;
 

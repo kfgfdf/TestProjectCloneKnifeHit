@@ -17,8 +17,8 @@ public class MenuContoll : MonoBehaviour
         PlayerPrefs.SetInt("Apples", 1000);
         ///////////////////////////
        
-        if(!PlayerPrefs.HasKey("BuyingKnifeSkin1"))
-            PlayerPrefs.SetInt("BuyingKnifeSkin1", 1);
+        if(!PlayerPrefs.HasKey("BuyingKnifeSkin01"))
+            PlayerPrefs.SetInt("BuyingKnifeSkin01", 1);
 
         CurrentSkin = PlayerPrefs.GetInt("KnifeSkin");
         if (!PlayerPrefs.HasKey("KnifeSkin")) 
