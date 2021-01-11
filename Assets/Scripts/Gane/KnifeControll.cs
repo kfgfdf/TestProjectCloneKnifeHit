@@ -14,12 +14,16 @@ public class KnifeControll : MonoBehaviour
         GameManag = GameObject.Find("GameManager");
         hitsScript = GameManag.GetComponent<GameManagers>();
         MCanvas = GameObject.Find("MainCanvas");
+
+        Vibration.Init();
     }
 
     void OnCollisionEnter2D (Collision2D other)
     {
         if(other.gameObject.tag == "Circle")
         {
+            Vibration.Vibrate();
+
             hitsScript.countHits++;
 
             PlayerPrefs.SetInt("TemporaryScore", PlayerPrefs.GetInt("TemporaryScore") + 1);
@@ -32,6 +36,8 @@ public class KnifeControll : MonoBehaviour
         }
         if(other.gameObject.tag == "Knife" || other.gameObject.tag == "KnifeStatic")
         {
+            Vibration.Vibrate();
+
             hitsScript._isDead = true;
             MCanvas.SetActive(false);
             Time.timeScale = 0;
