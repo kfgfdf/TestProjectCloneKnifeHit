@@ -9,7 +9,6 @@ public class KnifeControll : MonoBehaviour
     public GameManagers hitsScript;
     void Start()
     {
-        
         circle = GameObject.FindWithTag("Circle");
         GameManag = GameObject.Find("GameManager");
         hitsScript = GameManag.GetComponent<GameManagers>();

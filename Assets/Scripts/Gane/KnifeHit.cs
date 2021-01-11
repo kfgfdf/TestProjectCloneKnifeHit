@@ -49,8 +49,6 @@ public class KnifeHit : MonoBehaviour
         
         if(trigScript.newKnife)
         {
-            
-
             numberKnife++;
             newKnifeGO = Instantiate(CurrentSkinKnife, new Vector3(0, -4.2f, 0), Quaternion.identity)as GameObject;
             newKnifeGO.name = "Knife" + numberKnife;
@@ -69,13 +67,13 @@ public class KnifeHit : MonoBehaviour
             _ButtonDown = false;
             _isAttack = true;
             knifeRB.AddForce(transform.up * Speed);
-            Invoke("AttackFalse", AttackSpeed); // ! < 0.2f
+            StartCoroutine(AttackFalsed());
         }
     }
-
-    void AttackFalse()
+    
+    IEnumerator AttackFalsed()
     {
+        yield return new WaitForSeconds(AttackSpeed);
         _isAttack = false;
     }
-
 }

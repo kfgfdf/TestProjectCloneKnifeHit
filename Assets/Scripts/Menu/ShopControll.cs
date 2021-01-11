@@ -14,13 +14,11 @@ public class ShopControll : MonoBehaviour
 
     public void ButBuyOrChangeSkin()
     {
-        //if(Price.text == "Selected")
         if(ChangeTextInt == 0)
         {
             StatusBuying.text = "Already Selected!";
             Invoke("StatusBuyingIsNull", 2f);
         }
-        //else if(Price.text == "Change")
         else if(ChangeTextInt == 1)
         {
             PlayerPrefs.SetInt("KnifeSkin", currentNumberButton + 1);

@@ -6,63 +6,51 @@ public class CircleMoved : MonoBehaviour
 {
     private GameObject cirl;
     private Rigidbody2D cirlRB;
-    public float Speed = 120.0f, DefSpeed = 120.0f, SlowedSpeed = 20.0f, FastSpeed = 150.0f;
+    public float Speed = 120.0f, DefSpeed = 120.0f, SlowedSpeed = 40.0f, FastSpeed = 150.0f, 
+    timing1Phase = 4f, timing2Phase = 3f, timing3Phase = 2f, timing4Phase = 1.5f;
 
-    private int rndMoving;
+    [SerializeField] private int rndMoving;
+    [SerializeField] private float timing;
 
     void Start()
     {
         cirl = GameObject.FindWithTag("Circle");
         cirlRB = cirl.GetComponent<Rigidbody2D>();
 
+        StartCoroutine(ChaosMoving());
+    }
+
+    IEnumerator ChaosMoving()
+    {
+      while (true)
+      {
         if(PlayerPrefs.GetInt("Stage") <= 5)
-        Invoke("ChangeRotation", 0.3f);
+            timing = timing1Phase;
         else if(PlayerPrefs.GetInt("Stage") <= 10)
-        Invoke("ChangeRotation", 0.15f);
+            timing = timing2Phase;
         else if(PlayerPrefs.GetInt("Stage") <= 15)
-        Invoke("ChangeRotation", 0.05f);
+            timing = timing3Phase;
         else if(PlayerPrefs.GetInt("Stage") >= 15)
-        Invoke("ChangeRotation", 0.02f);
+            timing = timing4Phase;
+
+        yield return new WaitForSeconds(timing);
+
+        rndMoving = Random.Range(1, 4);
+        Speed = DefSpeed;
+
+        if(rndMoving == 1)
+        Speed = Speed * -1;
+        else if(rndMoving == 2)
+        Speed = SlowedSpeed;
+        else if(rndMoving == 3)
+        Speed = FastSpeed;
+
+        yield return new WaitForSeconds(timing);
+      }
     }
 
     void FixedUpdate()
     {
         cirlRB.transform.Rotate (0,0, Speed * Time.deltaTime);
-    }
-    
-    void ChangeRotation()
-    {
-        rndMoving = Random.Range(1, 4);
-
-        if(rndMoving == 1)
-        Invoke("FlipRotation", 2);
-        else if(rndMoving == 2)
-        Invoke("SlowedRotation", 1);
-        else if(rndMoving == 3)
-        Invoke("BoostRotation", 1);
-    }
-
-    void FlipRotation()
-    {
-        Speed = Speed * -1;
-        Invoke("ChangeRotation", 0.5f);
-    }
-
-    void SlowedRotation()
-    {
-        Speed = SlowedSpeed;
-        Invoke("DeffoltRotation", 0.5f);
-    }
-
-    void BoostRotation()
-    {
-        Speed = FastSpeed;
-        Invoke("DeffoltRotation", 0.5f);
-    }
-
-    void DeffoltRotation()
-    {
-        Speed = DefSpeed; //DEFOLTSPEED
-        Invoke("ChangeRotation", 0.4f);
     }
 }

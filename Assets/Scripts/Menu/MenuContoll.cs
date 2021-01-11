@@ -13,9 +13,13 @@ public class MenuContoll : MonoBehaviour
 
     void Start()
     {
-        ///////
-        PlayerPrefs.SetInt("Apples", 1000);
+        /////// GIVING MONEY! DELEDET!!!!!?????????????????????????????
+        if(!PlayerPrefs.HasKey("Apples"))
+            PlayerPrefs.SetInt("Apples", 1000);
         ///////////////////////////
+       
+
+
        
         if(!PlayerPrefs.HasKey("BuyingKnifeSkin01"))
             PlayerPrefs.SetInt("BuyingKnifeSkin01", 1);
