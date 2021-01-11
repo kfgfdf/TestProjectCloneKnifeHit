@@ -22,7 +22,7 @@ public class KnifeControll : MonoBehaviour
     {
         if(other.gameObject.tag == "Circle")
         {
-            Vibration.Vibrate();
+            Vibration.VibratePop();
 
             hitsScript.countHits++;
 
@@ -36,7 +36,7 @@ public class KnifeControll : MonoBehaviour
         }
         if(other.gameObject.tag == "Knife" || other.gameObject.tag == "KnifeStatic")
         {
-            Vibration.Vibrate();
+            Vibration.VibratePop();
 
             hitsScript._isDead = true;
             MCanvas.SetActive(false);
